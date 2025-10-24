@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #222;
+  padding-bottom: 50px;
+}
+
+header {
+  background: #1a73e8;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+section {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #1a73e8;
+  border-bottom: 2px solid #1a73e8;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, select, button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0c5edb;
+}
+
+.msg {
+  margin-top: 15px;
+  color: green;
+  font-weight: bold;
+}
+
+.table-list .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.card {
+  border: 2px solid #1a73e8;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background: #f8fbff;
+}
+
+.card.booked {
+  background: #ffe4e4;
+  border-color: #e53935;
+}
+
+.records table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.records th, .records td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.records th {
+  background: #1a73e8;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  background: #1a73e8;
+  color: white;
+  padding: 12px;
+  margin-top: 40px;
+}

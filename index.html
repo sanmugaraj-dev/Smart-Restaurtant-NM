@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restaurantApp">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Restaurant Table Booking</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="BookingController">
+
+  <!-- Header -->
+  <header>
+    <h1>🍽️ Smart Restaurant Table Booking</h1>
+  </header>
+
+  <!-- Booking Section -->
+  <section class="booking-section">
+    <h2>Book Your Table</h2>
+    <form ng-submit="bookTable()">
+      <label>Name</label>
+      <input type="text" ng-model="booking.name" placeholder="Enter your name" required>
+
+      <label>Email</label>
+      <input type="email" ng-model="booking.email" placeholder="Enter your email" required>
+
+      <label>Date</label>
+      <input type="date" ng-model="booking.date" required>
+
+      <label>Time</label>
+      <input type="time" ng-model="booking.time" required>
+
+      <label>Number of People</label>
+      <select ng-model="booking.seats" required>
+        <option value="">Select</option>
+        <option ng-repeat="n in [1,2,3,4,5,6,7,8]" value="{{n}}">{{n}} People</option>
+      </select>
+
+      <button type="submit">Book Table</button>
+    </form>
+
+    <p class="msg" ng-show="message">{{message}}</p>
+  </section>
+
+  <!-- Table List -->
+  <section class="table-list">
+    <h2>Available Tables</h2>
+    <div class="grid">
+      <div class="card" ng-repeat="table in tables" ng-class="{'booked': table.booked}">
+        <h3>{{table.name}}</h3>
+        <p>Seats: {{table.seats}}</p>
+        <p>Status: <strong>{{table.booked ? 'Booked' : 'Available'}}</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Records -->
+  <section class="records">
+    <h2>Recent Bookings</h2>
+    <table ng-show="bookings.length">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Seats</th>
+        <th>Table</th>
+      </tr>
+      <tr ng-repeat="b in bookings">
+        <td>{{b.name}}</td>
+        <td>{{b.email}}</td>
+        <td>{{b.date}}</td>
+        <td>{{b.time}}</td>
+        <td>{{b.seats}}</td>
+        <td>{{b.table}}</td>
+      </tr>
+    </table>
+    <p ng-hide="bookings.length">No bookings yet.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Developed by Muthukumar S | © 2025 Smart Restaurant</p>
+  </footer>
+
+</body>
+</html>
